@@ -1,0 +1,129 @@
+.section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 38px;
+  padding: 24px 0 42px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bannerCol {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.banner {
+  max-width: 410px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 22px #72798516;
+  object-fit: cover;
+}
+
+.newsCol {
+  flex: 1.2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.newsCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #bcc1d623;
+  padding: 0 0 8px 0;
+  width: 320px;
+  min-width: 250px;
+}
+
+.newsHeader {
+  background: #164183;
+  padding: 11px 18px;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+  font-size: 1.16rem;
+  letter-spacing: 1px;
+}
+
+.newsList {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 0 0;
+  width: 100%;
+}
+
+.newsItem {
+  padding: 10px 14px 11px 18px;
+  border-bottom: 1px solid #e0e7ef;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.newsItem:last-child {
+  border-bottom: none;
+}
+
+.badge {
+  margin-left: 10px;
+  color: #d8000c;
+  background: #ffe1e1;
+  font-size: 0.83em;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .section {
+    flex-direction: column;
+    gap: 18px;
+    padding: 10px 0 18px 0;
+  }
+  .bannerCol,
+  .newsCol {
+    justify-content: center;
+    width: 100%;
+  }
+  .banner {
+    max-width: 98vw;
+    margin-bottom: 6vw;
+  }
+  .newsCard {
+    width: 98vw;
+    min-width: 0;
+    max-width: 440px;
+  }
+}
+
+.overviewWrap {
+  max-width: 1160px;
+  margin: 0 auto 36px auto;
+  text-align: center;
+}
+
+.overviewTitle {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 18px;
+  color: #191f28;
+  letter-spacing: 1px;
+  border-bottom: 4px solid #d5122e;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.overviewText {
+  color: #21242b;
+  font-size: 1.14rem;
+  margin-bottom: 9px;
+  line-height: 1.65;
+  text-align: center;
+}

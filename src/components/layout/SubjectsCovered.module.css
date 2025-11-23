@@ -1,0 +1,102 @@
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto 44px auto;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.67em;
+  color: #191f28;
+  letter-spacing: 1px;
+  border-bottom: 4px solid #d5122e;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.yearTabs {
+  margin: 20px 0 34px 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.65em;
+}
+.yearTabs button {
+  background: #eee;
+  border: none;
+  padding: 9px 26px;
+  font-size: 1.1em;
+  border-radius: 7px 7px 0 0;
+  color: #222;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+.activeTab {
+  background: #2267cf;
+  color: #fff;
+}
+
+.sectionsRow {
+  display: flex;
+  gap: 19px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sectionBox {
+  background: #e7f2f9a3;
+  border-radius: 27px;
+  min-width: 180px;
+  max-width: 235px;
+  padding: 22px 24px 22px 24px;
+  text-align: left;
+  box-shadow: 0 2px 18px #dbedf199;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 13px;
+}
+
+/* Special coloring for Section 1 and Section 3 */
+.langBox { background: #ffe4e2; }
+.gatBox { background: #eaeafd; }
+.domainBox { background: #e7f7fa; }
+
+.sectionBox ul {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0 0 0 0.7em;
+}
+.sectionBox li {
+  font-size: 1.08em;
+  margin-bottom: 7px;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .sectionsRow {
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+  .sectionBox {
+    min-width: 125px;
+    max-width: 45vw;
+    padding: 14px 4vw 16px 4vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .sectionsRow {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sectionBox {
+    width: 90vw;
+    max-width: 420px;
+    min-width: 0;
+  }
+}

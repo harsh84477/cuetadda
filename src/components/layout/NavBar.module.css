@@ -1,0 +1,79 @@
+.navBar {
+  background: #095188;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Hide menu button on desktop */
+.menuButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.14rem;
+  font-weight: bold;
+  margin: 10px 0;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  gap: 7px;
+}
+
+.menuIcon {
+  font-size: 1.27em;
+}
+
+.linksContainer {
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+  width: 100%;
+  transition: max-height 0.35s;
+  overflow: hidden;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 10px;
+  font-size: 1rem;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.link:hover, .highlight {
+  color: #ffe924;
+  font-weight: 600;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 800px) {
+  .navBar {
+    padding: 0 10px;
+  }
+  .menuButton {
+    display: flex;
+  }
+  .linksContainer {
+    flex-direction: column;
+    gap: 0;
+    background: #095188;
+    width: 100%;
+    max-height: 0;
+    border-top: 1px solid #114366;
+    box-shadow: 0 2px 12px #09518829;
+    transition: max-height 0.35s;
+  }
+  .show {
+    max-height: 800px;
+    transition: max-height 0.45s;
+  }
+  .link {
+    padding: 14px 10px;
+    border-bottom: 1px solid #114366;
+    font-size: 1.08rem;
+  }
+}

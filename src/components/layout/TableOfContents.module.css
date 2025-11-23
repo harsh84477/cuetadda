@@ -1,0 +1,50 @@
+.tocSection {
+  background: #fff8f4;
+  border-radius: 10px;
+  margin: 32px auto;
+  max-width: 1100px;
+  box-shadow: 0 2px 16px rgba(100,30,20,0.04);
+  padding-bottom: 20px;
+}
+
+.tocHeader {
+  font-weight: 700;
+  font-size: 1.25rem;
+  background: #fff6ef;
+  padding: 18px 13px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  transition: background 0.18s;
+}
+
+.tocHeader:hover {
+  background: #fae1d3;
+}
+
+.tocIcon {
+  font-size: 1.35rem;
+  display: inline-block;
+  transition: transform 0.25s;
+}
+
+.tocList {
+  margin-top: 10px;
+}
+
+.tocItem {
+  background: #fff;
+  margin: 8px 10px 0 10px;
+  border-radius: 5px;
+  padding: 15px 12px;
+  font-size: 1.05rem;
+  box-shadow: 0 1px 0 #f7ede8;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tocItem:hover {
+  background: #fbece4;
+}
