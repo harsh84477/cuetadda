@@ -35,9 +35,7 @@ const DATA = {
       group: "Science",
       colorClass: "domainBox",
       bold: true,
-      items: [
-        { label: "Core Maths" }
-      ]
+      items: [{ label: "Core Maths" }]
     },
     {
       group: "Section 3: GAT",
@@ -88,7 +86,7 @@ export default function SubjectsCovered() {
   const groups = DATA[year];
 
   return (
-    <section className={styles.wrap}>
+    <section className={styles.wrap} id="subjects">
       <h2 className={styles.title}>Subjects covered</h2>
       <div className={styles.yearTabs}>
         <button

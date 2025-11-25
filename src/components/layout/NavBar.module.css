@@ -7,7 +7,6 @@
   position: relative;
 }
 
-/* Hide menu button on desktop */
 .menuButton {
   background: none;
   border: none;
@@ -22,7 +21,7 @@
 }
 
 .menuIcon {
-  font-size: 1.27em;
+  font-size: 1.25em;
 }
 
 .linksContainer {
@@ -30,8 +29,6 @@
   gap: 16px;
   flex-direction: row;
   width: 100%;
-  transition: max-height 0.35s;
-  overflow: hidden;
 }
 
 .link {
@@ -49,31 +46,29 @@
   font-weight: 600;
 }
 
-/* Responsive styles for mobile */
 @media (max-width: 800px) {
   .navBar {
-    padding: 0 10px;
+    padding: 0 12px;
   }
   .menuButton {
     display: flex;
   }
   .linksContainer {
     flex-direction: column;
-    gap: 0;
-    background: #095188;
     width: 100%;
     max-height: 0;
-    border-top: 1px solid #114366;
-    box-shadow: 0 2px 12px #09518829;
-    transition: max-height 0.35s;
+    overflow: hidden;
+    background: #095188;
+    transition: max-height 0.4s;
+    border-top: 1px solid #135377;
   }
   .show {
-    max-height: 800px;
-    transition: max-height 0.45s;
+    max-height: 600px;
   }
   .link {
     padding: 14px 10px;
-    border-bottom: 1px solid #114366;
-    font-size: 1.08rem;
+    border-bottom: 1px solid #124066;
+    font-size: 1.11rem;
+    width: 100%;
   }
 }

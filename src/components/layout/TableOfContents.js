@@ -1,8 +1,6 @@
-"use client";
-import { useState } from "react";
+"use client"
+import { useState, useCallback } from "react";
 import styles from "./TableOfContents.module.css";
-
-
 
 const tocItems = [
   "Overview of CUET",
@@ -15,36 +13,59 @@ const tocItems = [
   "CUET UG Articles",
   "Top Colleges of DU",
   "CUET Popular Courses",
-  "CUET UG FAQs"
+  "CUET UG FAQs",
 ];
 
-const TableOfContents = () => {
+export default function TableOfContents() {
   const [open, setOpen] = useState(true);
 
+  const toggle = useCallback(() => setOpen((v) => !v), []);
+
+  const onKey = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggle();
+    }
+  };
+
   return (
-    <section className={styles.tocSection}>
-      <div
-        className={styles.tocHeader}
-        onClick={() => setOpen((prev) => !prev)}
-        style={{ cursor: "pointer" }}
-        aria-expanded={open}
-      >
-        <span>Table of Contents</span>
-        <span className={styles.tocIcon} style={{ transform: open ? "rotate(0deg)" : "rotate(180deg)" }}>
-          &#8963;
-        </span>
+    <div className={styles.container}>
+      {/* Banner */}
+      <div className={styles.banner}>
+        <img
+          src="/uploads/Screenshot 2025-11-24 110914.png"
+          alt="CUET Banner"
+          className={styles.bannerImage}
+        />
       </div>
-      {open && (
-        <div className={styles.tocList}>
+
+      {/* Table of Contents (dropdown) */}
+      <section className={styles.tocSection}>
+        <div
+          className={styles.tocHeader}
+          role="button"
+          tabIndex={0}
+          aria-expanded={open}
+          onClick={toggle}
+          onKeyDown={onKey}
+        >
+          <span>Table of Contents</span>
+          <span
+            className={`${styles.tocIcon} ${open ? styles.open : ""}`}
+            aria-hidden="true"
+          >
+            ⌃
+          </span>
+        </div>
+
+        <div className={`${styles.tocList} ${open ? styles.show : styles.hidden}`}>
           {tocItems.map((item, idx) => (
-            <div className={styles.tocItem} key={idx}>
+            <div className={styles.tocItem} key={idx} role="link" tabIndex={0}>
               {item}
             </div>
           ))}
         </div>
-      )}
-    </section>
+      </section>
+    </div>
   );
-};
-
-export default TableOfContents;
+}

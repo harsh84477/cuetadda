@@ -9,19 +9,24 @@
 }
 
 .colLeft {
+  width: 320px;
+  height: 320px;
+  max-width: 100vw;
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .wheel {
   width: 320px;
-  max-width: 90vw;
-  height: auto;
-  border-radius: 50%;
-  background: #fff;
+  height: 320px;
+  max-width: 100vw;
+   border-radius: 50%; 
+   background: #d1d0e8;
   box-shadow: 0 4px 28px #f3be7c25;
-}
+  object-fit: cover;
+  object-position: center;
+} 
 
 .colRight {
   flex: 2;
@@ -56,7 +61,7 @@
   .wrap { flex-direction: column; text-align: center; gap: 30px; padding: 24px 1vw; }
   .colLeft { justify-content: center; }
   .colRight { align-items: center; }
-  .wheel { width: 210px; }
+  /* .wheel { width: 210px; } */
   .title { font-size: 1.25rem; }
   .list { font-size: 1rem; padding-left: 0; }
 }

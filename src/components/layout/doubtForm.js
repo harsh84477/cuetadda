@@ -12,6 +12,7 @@ export default function DoubtForm() {
     city: "",
     pincode: ""
   });
+  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

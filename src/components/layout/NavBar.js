@@ -2,14 +2,14 @@
 import { useState } from "react";
 import styles from "./NavBar.module.css";
 
-const LINKS = [
-  { label: "Programs", href: "#" },
-  { label: "Exam", href: "#" },
-  { label: "Result", href: "#" },
-  { label: "Free Resources", href: "#" },
-  { label: "Domain Subjects", href: "#" },
-  { label: "Universities", href: "#" },
-  { label: "EasyApply", href: "#", highlight: true }
+const navLinks = [
+  { label: "Programs", href: "#programs" },
+  { label: "Exam", href: "#exam" },
+  { label: "Result", href: "#result" },
+  { label: "Free Resources", href: "#free-resources" },
+  { label: "Domain Subjects", href: "#subjects" },
+  { label: "Universities", href: "#universities" },
+  { label: "EasyApply", href: "#easyapply", highlight: true }
 ];
 
 export default function NavBar() {
@@ -20,12 +20,12 @@ export default function NavBar() {
       <button
         className={styles.menuButton}
         onClick={() => setOpen((v) => !v)}
-        aria-label="Toggle navigation menu"
+        aria-label="Toggle menu"
       >
         <span className={styles.menuIcon}>&#9776;</span> Menu
       </button>
       <div className={`${styles.linksContainer} ${open ? styles.show : ""}`}>
-        {LINKS.map((l) => (
+        {navLinks.map((l) => (
           <a
             key={l.label}
             href={l.href}

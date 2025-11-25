@@ -1,0 +1,109 @@
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto 44px auto;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: bold;
+  margin-top: 22px;
+  margin-bottom: 0.5rem;
+  color: #191f28;
+  letter-spacing: 1px;
+  border-bottom: 4px solid #d5122e;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.desc {
+  color: #232a32;
+  font-size: 1.13rem;
+  margin: 9px 0 2px 0;
+  line-height: 1.6;
+}
+
+.subtitle {
+  color: #222;
+  font-size: 1.04rem;
+  margin: 13px 0 30px 0;
+}
+
+.radioRow {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 28px 0 20px 0;
+  flex-wrap: wrap;
+}
+
+.radioCol {
+  background: #fff;
+  border: 2px solid #ffedc2;
+  border-radius: 20px;
+  padding: 18px 26px;
+  min-width: 180px;
+  box-shadow: 0 6px 26px #fff9e0a8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 250px;
+  max-width: 290px;
+}
+
+.radioTitle {
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  font-size: 1.03rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.radioLabel input[type="radio"] {
+  accent-color: #ff4b5a;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.btnWrap {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.btn {
+  background: #f3451e;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.17rem;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 36px;
+  box-shadow: 0 2px 8px #d91e2578;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.btn:hover {
+  background: #c9301b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 950px) {
+  .radioRow { gap: 10px; }
+  .radioCol { min-width: 120px; padding: 15px 7vw; }
+}
+
+@media (max-width: 700px) {
+  .radioRow { flex-direction: column; align-items: center; }
+  .radioCol { width: 95vw; max-width: 420px; }
+}

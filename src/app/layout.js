@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
-import Header from "@/components/layout/Header";
-
+import Header from "@/components/layout/ Header";
+import { Footer } from "@/components/layout";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,16 +35,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <script src="https://cdn.tailwindcss.com"></script>
-      </head>
+          {/* Tailwind CDN added per user request */}
+          <script src="https://cdn.tailwindcss.com"></script>
+        </head>
       <body className={`${geistSans.variable} ${geistMono.variable} app-shell`}>
-        {/* <a href="#main-content" className="skip-link">
-        </a> */}
-        {/* <Header/> */}
-        
-        <div>
+        <Header />
         {children}
-        </div>
+         <Footer />
       </body>
     </html>
   );

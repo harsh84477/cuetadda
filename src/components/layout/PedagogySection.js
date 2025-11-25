@@ -5,7 +5,7 @@ export default function PedagogySection() {
     <section className={styles.wrap}>
       <div className={styles.colLeft}>
         <img
-          src="/pedagogy-wheel.png"
+          src="uploads/6858_pedagogy.png"
           alt="CL 360 Pedagogy Wheel"
           className={styles.wheel}
         />
@@ -25,7 +25,7 @@ export default function PedagogySection() {
             With interactive and immersive learning, each subject comes alive and exciting for a lifetime, not just for CUET preparation.
           </li>
           <li>
-            1200+ 100% - iles & perfect scores consecutively for 2 years (CUET 2023 & 2024) showcase our track record of CUET success.
+            1200+ 100% - iles &amp; perfect scores consecutively for 2 years (CUET 2023 &amp; 2024) showcase our track record of CUET success.
           </li>
         </ul>
       </div>

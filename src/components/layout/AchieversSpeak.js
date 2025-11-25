@@ -23,9 +23,11 @@ const ACHIEVERS = [
 
 export default function AchieversSpeak() {
   return (
-    <section className={styles.wrap}>
+    <section className={styles.wrap} id="achievers">
       <h2 className={styles.title}>Achievers Speak</h2>
-      <div className={styles.subtitle}>Congratulations to the CUET 2025 achievers!</div>
+      <div className={styles.subtitle}>
+        Congratulations to the CUET 2025 achievers!
+      </div>
       <div className={styles.cardsRow}>
         {ACHIEVERS.map((ach) => (
           <div className={styles.card} key={ach.id}>

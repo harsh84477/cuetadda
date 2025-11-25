@@ -1,0 +1,359 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Left Section */
+.leftSection {
+  flex: 1;
+ background: #ffffff;
+  padding: 40px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  color: #1a1a1a;
+}
+
+.content {
+  max-width: 560px;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #4a5568;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.email, .phone {
+  font-size: 16px;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.email:hover, .phone:hover {
+  color: #3182ce;
+}
+
+.supportLink {
+  display: inline-block;
+  font-size: 16px;
+  color: #1a1a1a;
+  text-decoration: underline;
+  margin-bottom: 48px;
+  transition: color 0.2s;
+}
+
+.supportLink:hover {
+  color: #3182ce;
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.card p {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Right Section - Form */
+.rightSection {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 420px;
+  background: #fefefe;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.formTitle {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.formSubtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nameRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #1a1a1a;
+  background: #ffffff;
+  transition: all 0.2s;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+  color: #9ca3af;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+}
+
+.error {
+  font-size: 13px;
+  color: #ef4444;
+}
+
+.emailInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.emailIcon {
+  position: absolute;
+  left: 16px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.emailInput input {
+  padding-left: 44px;
+}
+
+.phoneInput {
+  display: flex;
+  gap: 8px;
+}
+
+.countryCode {
+  padding: 14px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #1a1a1a;
+  background: #ffffff;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.countryCode:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.phoneInput input {
+  flex: 1;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 16px;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.submitBtn:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  padding: 12px;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.terms {
+  font-size: 13px;
+  color: #6b7280;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.terms a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .leftSection {
+    padding: 40px 32px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .rightSection {
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .leftSection {
+    padding: 32px 24px;
+  }
+
+  .logo {
+    margin-bottom: 48px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .infoCards {
+    gap: 24px;
+    flex-direction: column;
+  }
+
+  .formCard {
+    padding: 32px 24px;
+  }
+
+  .formTitle {
+    font-size: 28px;
+  }
+
+  .nameRow {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftSection {
+    padding: 24px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .formCard {
+    padding: 24px 20px;
+  }
+
+  .formTitle {
+    font-size: 24px;
+  }
+
+  .phoneInput {
+    flex-direction: column;
+  }
+
+  .countryCode {
+    width: 100%;
+  }
+}

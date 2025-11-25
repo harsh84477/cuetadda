@@ -25,7 +25,6 @@
   gap: 28px;
   flex-wrap: wrap;
 }
-
 .card {
   width: 320px;
   min-height: 245px;
@@ -38,26 +37,22 @@
   align-items: center;
   justify-content: flex-start;
 }
-
 .cardTitle {
   font-weight: bold;
   font-size: 1.07rem;
   margin-top: 8px;
   margin-bottom: 0;
 }
-
 .cardInfo {
   font-size: 0.98em;
   margin-top: 6px;
   color: #1d1d2f;
   letter-spacing: 1px;
 }
-
 .video {
   border-radius: 10px;
   margin-top: 10px;
 }
-
 @media (max-width: 1000px) {
   .cardsRow { gap: 11px; }
   .card { width: 92vw; max-width: 540px; }

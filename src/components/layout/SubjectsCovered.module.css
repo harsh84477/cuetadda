@@ -33,9 +33,24 @@
   cursor: pointer;
   transition: background 0.16s;
 }
-.activeTab {
+/* Allow JS to toggle either `activeTab` or `active` */
+.yearTabs .activeTab,
+.yearTabs .active {
   background: #2267cf;
   color: #fff;
+  box-shadow: 0 6px 18px rgba(34,103,207,0.18);
+  transform: translateY(-1px);
+}
+
+/* Pressed state while clicking */
+.yearTabs button:active {
+  transform: translateY(0);
+}
+
+/* Keyboard focus */
+.yearTabs button:focus-visible {
+  outline: 3px solid rgba(34,103,207,0.18);
+  outline-offset: 3px;
 }
 
 .sectionsRow {

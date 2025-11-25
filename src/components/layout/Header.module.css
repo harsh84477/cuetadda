@@ -1,11 +1,11 @@
-.header {
+ .header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
   background: #fff;
   border-bottom: 2px solid #d4eaf7;
-  flex-wrap: wrap;
 }
 
 .left {
@@ -31,7 +31,7 @@
   flex: 1;
   margin-left: 32px;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .link {
@@ -39,15 +39,14 @@
   color: #204060;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
 }
 
-/* CTA button */
 .cta {
   background: #ff671b;
   color: #fff;
   font-weight: bold;
-  padding: 12px 18px;
+  padding: 6px 6px ;
+  margin-right: 20px;
   border: none;
   border-radius: 6px;
   font-size: 15px;
@@ -56,49 +55,22 @@
   white-space: nowrap;
 }
 
-/* RESPONSIVE STYLES */
 @media (max-width: 900px) {
   .header {
     padding: 12px 10px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    gap: 6px;
-  }
-  .left {
-    margin-bottom: 5px;
+     gap: 8px;
   }
   .nav {
+    display: none;
     margin-left: 0;
     width: 100%;
-    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 8px 12px;
+    gap: 10px 6vw;
   }
   .cta {
-    margin-top: 8px;
-    width: 100%;
+    width: 20%;
+    margin-top: 1px;
   }
-}
-
-@media (max-width: 600px) {
-  .header {
-    padding: 5vw 2vw;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 5px;
-    gap: 7px;
-  }
-  .link {
-    margin: 0;
-    font-size: .96rem;
-  }
-  .cta {
-    font-size: .98rem;
-    padding: 10px 12px;
-    width: 100%;
-  }
-}
+} 

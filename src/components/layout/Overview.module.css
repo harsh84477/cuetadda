@@ -1,10 +1,11 @@
 .section {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 38px;
   padding: 24px 0 42px 0;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -15,7 +16,7 @@
 }
 
 .banner {
-  max-width: 410px;
+  max-width: 810px;
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 22px #72798516;
@@ -80,7 +81,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 900px) {
+ @media (max-width: 900px) {
   .section {
     flex-direction: column;
     gap: 18px;
@@ -92,7 +93,7 @@
     width: 100%;
   }
   .banner {
-    max-width: 98vw;
+    max-width: 80vw;
     margin-bottom: 6vw;
   }
   .newsCard {
@@ -126,4 +127,4 @@
   margin-bottom: 9px;
   line-height: 1.65;
   text-align: center;
-}
+} 

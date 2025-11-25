@@ -30,7 +30,7 @@ export default function OverviewSection() {
       <div className={styles.section}>
         <div className={styles.bannerCol}>
           <img
-            src="/banner-easyapply.jpg"
+            src="/uploads/banner-easyapply.png"
             alt="EasyApply banner"
             className={styles.banner}
           />
