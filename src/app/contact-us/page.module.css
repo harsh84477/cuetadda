@@ -7,7 +7,7 @@
 /* Left Section */
 .leftSection {
   flex: 1;
- background: #ffffff;
+  background: #ffffff;
   padding: 40px 60px;
   position: relative;
   overflow: hidden;
@@ -50,7 +50,7 @@
   font-size: 16px;
   color: #1a1a1a;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .email:hover, .phone:hover {
@@ -63,7 +63,7 @@
   color: #1a1a1a;
   text-decoration: underline;
   margin-bottom: 48px;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .supportLink:hover {
@@ -155,7 +155,8 @@
   font-size: 15px;
   color: #1a1a1a;
   background: #ffffff;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .inputGroup input:focus,
@@ -172,11 +173,19 @@
 
 .inputError {
   border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
 .error {
   font-size: 13px;
   color: #ef4444;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
 }
 
 .emailInput {
@@ -190,6 +199,7 @@
   left: 16px;
   font-size: 16px;
   pointer-events: none;
+  color: #9ca3af;
 }
 
 .emailInput input {
@@ -210,11 +220,14 @@
   background: #ffffff;
   cursor: pointer;
   min-width: 80px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .countryCode:focus {
   outline: none;
   border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .phoneInput input {
@@ -231,7 +244,7 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   margin-top: 8px;
 }
 
@@ -241,9 +254,15 @@
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
 .submitBtn:disabled {
   background: #93c5fd;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .successMessage {
@@ -254,6 +273,18 @@
   text-align: center;
   font-size: 14px;
   font-weight: 500;
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .terms {
@@ -266,10 +297,12 @@
 .terms a {
   color: #3b82f6;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .terms a:hover {
   text-decoration: underline;
+  color: #2563eb;
 }
 
 /* Responsive Design */

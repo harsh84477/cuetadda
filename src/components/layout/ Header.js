@@ -9,7 +9,7 @@ export default function Header() {
         <span className={styles.brand}>CUET Portal</span>
       </div>
       <nav className={styles.nav}>
-        <a href="#about" className={styles.link}>About</a>
+        <a href="about" className={styles.link}>About</a>
         <a href="#programs" className={styles.link}>Programs</a>
         <a href="#subjects" className={styles.link}>Subjects</a>
         <a href="#mentors" className={styles.link}>Mentors</a>

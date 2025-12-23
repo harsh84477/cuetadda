@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import styles from './page.module.css';
 
 export default function ContactPage() {
@@ -15,67 +15,54 @@ export default function ContactPage() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const successTimeoutRef = useRef(null);
 
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
+  // Optimized validation functions
+  const validateEmail = useCallback((email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }, []);
 
-  const validatePhone = (phone) => {
-    const regex = /^[0-9]{10,15}$/;
-    return regex.test(phone);
-  };
+  const validatePhone = useCallback((phone) => {
+    return /^[0-9]{10,15}$/.test(phone);
+  }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
-  };
-
-  const validateForm = () => {
+  // Memoized form validation
+  const validateForm = useCallback(() => {
     const newErrors = {};
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required';
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required';
-    }
-
+    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
+    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!validateEmail(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
-
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
     } else if (!validatePhone(formData.phone)) {
       newErrors.phone = 'Please enter a valid phone number (10-15 digits)';
     }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
 
     return newErrors;
-  };
+  }, [formData, validateEmail, validatePhone]);
 
-  const handleSubmit = async (e) => {
+  // Optimized change handler
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Clear error immediately
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  }, [errors]);
+
+  // Optimized submit handler
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     
     const newErrors = validateForm();
-    
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
@@ -83,11 +70,13 @@ export default function ContactPage() {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    // Simulate API call with cleanup
+    const timeoutId = setTimeout(() => {
       console.log('Form submitted:', formData);
       setIsSubmitting(false);
       setSubmitSuccess(true);
+      
+      // Reset form
       setFormData({
         firstName: '',
         lastName: '',
@@ -97,18 +86,32 @@ export default function ContactPage() {
         message: ''
       });
       
-      // Reset success message after 3 seconds
-      setTimeout(() => {
+      // Cleanup previous timeout
+      if (successTimeoutRef.current) {
+        clearTimeout(successTimeoutRef.current);
+      }
+      
+      // Auto-hide success message
+      successTimeoutRef.current = setTimeout(() => {
         setSubmitSuccess(false);
       }, 3000);
     }, 1000);
-  };
+
+    return () => clearTimeout(timeoutId);
+  }, [formData, validateForm]);
+
+  // Cleanup on unmount
+  const handleResetSuccess = useCallback(() => {
+    if (successTimeoutRef.current) {
+      clearTimeout(successTimeoutRef.current);
+      setSubmitSuccess(false);
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
       {/* Left Section */}
       <div className={styles.leftSection}>
-        
         <div className={styles.content}>
           <h1 className={styles.title}>Contact Us</h1>
           <p className={styles.subtitle}>
@@ -120,7 +123,7 @@ export default function ContactPage() {
             <a href="mailto:info@snappy.io" className={styles.email}>
               info@snappy.io
             </a>
-            <a href="tel:321-221-231" className={styles.phone}>
+            <a href="tel:+1321221231" className={styles.phone}>
               321-221-231
             </a>
           </div>
@@ -132,12 +135,10 @@ export default function ContactPage() {
               <h3>Customer Support</h3>
               <p>Our support team is available around the clock to address any concerns or queries you may have.</p>
             </div>
-
             <div className={styles.card}>
               <h3>Feedback and Suggestions</h3>
               <p>We value your feedback and are continuously working to improve Snappy. Your input is crucial in shaping the future of Snappy.</p>
             </div>
-
             <div className={styles.card}>
               <h3>Media Inquiries</h3>
               <p>For media-related questions or press inquiries, please contact us at media@snappyapp.com.</p>
@@ -195,9 +196,7 @@ export default function ContactPage() {
                   className={errors.email ? styles.inputError : ''}
                 />
               </div>
-              {errors.email && (
-                <span className={styles.error}>{errors.email}</span>
-              )}
+              {errors.email && <span className={styles.error}>{errors.email}</span>}
             </div>
 
             <div className={styles.inputGroup}>
@@ -223,9 +222,7 @@ export default function ContactPage() {
                   className={errors.phone ? styles.inputError : ''}
                 />
               </div>
-              {errors.phone && (
-                <span className={styles.error}>{errors.phone}</span>
-              )}
+              {errors.phone && <span className={styles.error}>{errors.phone}</span>}
             </div>
 
             <div className={styles.inputGroup}>
@@ -237,9 +234,7 @@ export default function ContactPage() {
                 className={errors.message ? styles.inputError : ''}
                 rows="4"
               />
-              {errors.message && (
-                <span className={styles.error}>{errors.message}</span>
-              )}
+              {errors.message && <span className={styles.error}>{errors.message}</span>}
             </div>
 
             <button 
@@ -251,7 +246,10 @@ export default function ContactPage() {
             </button>
 
             {submitSuccess && (
-              <div className={styles.successMessage}>
+              <div 
+                className={styles.successMessage}
+                onAnimationEnd={handleResetSuccess}
+              >
                 ✓ Form submitted successfully!
               </div>
             )}
